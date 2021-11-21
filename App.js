@@ -1,21 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import {createAppContainer} from 'react-navigation'
+import {createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs';
+import {white, gray, black, blue, lightgray} from './utils/colors'
+import Decks from './Components/Decks';
+import AddDeck from './Components/AddDeck';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+const TabNavigator = createMaterialBottomTabNavigator(
+  {
+    Decks: {
+    screen: Decks,
+
   },
-});
+    AddDeck: {
+      screen: AddDeck
+    }
+  },
+  {
+    initialRouteName: 'Decks',
+    activeColor: gray,
+    inactiveColor: blue
+  }
+)
+
+export default createAppContainer(TabNavigator);
