@@ -7,7 +7,7 @@ import {white, gray, black, blue, lightgray} from './utils/colors'
 import Decks from './Components/Decks';
 import AddDeck from './Components/AddDeck';
 import SelectedDeck from './Components/SelectedDeck';
-
+import AddCard from './Components/AddCard';
 
 
 const TabNavigator = createMaterialBottomTabNavigator(
@@ -19,7 +19,7 @@ const TabNavigator = createMaterialBottomTabNavigator(
     }
   },
     AddDeck: {
-      screen: AddDeck,
+      screen: AddCard,
       navigationOptions:{
         tabBarIcon: ({}) => (<View><Ionicon size={22} style={{}} name={'duplicate'} /></View>)
       }

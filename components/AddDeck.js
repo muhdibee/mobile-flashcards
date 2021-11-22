@@ -24,7 +24,7 @@ class AddDeck extends React.Component {
                     <TextInput onChangeText={(e)=> this.handleOnChangeText(e)} value={this.state.text} style={{margin: 10}} placeholder="Deck Title"/>
                 </View>
                 <View style={[appStyles.container, {justifyContent: "center", flex: 1}]}>
-                    <Button style={{ margin: 10, padding: 10 }} title="Create Deck" />
+                    <Button color={blue} style={{ margin: 10, padding: 10 }} title="Create Deck" />
                 </View>
             </View>
         )
