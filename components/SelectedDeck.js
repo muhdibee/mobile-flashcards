@@ -5,7 +5,14 @@ import {white, gray, black, blue, lightgray} from '../utils/colors'
 
 class SelectedDeck extends React.Component {
 
+    constructor(props) {
+        super(props);
+    }
+
     render() {
+
+        // const navigtion = props.navigtion;
+
         return(
         <View style={[appStyles.container, {justifyContent: 'space-around', flex: 1}]}>
             <View style={[appStyles.container, {justifyContent: 'center', flex: 1}]}>

@@ -7,7 +7,9 @@ import {white, gray, black, blue, lightgray} from '../utils/colors'
 
 
 class AddCard extends React.Component {
-
+    constructor(props) {
+        super(props);
+    }
     state = {
         question:'',
         answer: ''
@@ -23,6 +25,7 @@ class AddCard extends React.Component {
         console.log('Text Value:', this.state.answer)
     }
     render() {
+        // const navigtion = props.navigtion;
         return(
             <View style={[ appStyles.container, { justifyContent: "space-evenly", flex: 1 } ]}>
                 <View style={[appStyles.container, {justifyContent: "center", flex: 1}]}>
