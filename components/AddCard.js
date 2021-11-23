@@ -14,17 +14,17 @@ class AddCard extends React.Component {
     }
 
     handleQuestion(e) {
-        this.setState({question:e})
+        this.setState({ question:e })
         console.log('Text Value:', this.state.question)
     }
 
     handleAnswer(e) {
-        this.setState({answer:e})
+        this.setState({ answer:e })
         console.log('Text Value:', this.state.answer)
     }
     render() {
         return(
-            <View style={[appStyles.container, {justifyContent: "space-evenly", flex: 1}]}>
+            <View style={[ appStyles.container, { justifyContent: "space-evenly", flex: 1 } ]}>
                 <View style={[appStyles.container, {justifyContent: "center", flex: 1}]}>
                     <TextInput onChangeText={(e)=> this.handleQuestion(e)} value={this.state.question} style={{margin: 10}} placeholder="Question"/>
                     <TextInput onChangeText={(e)=> this.handleAnswer(e)} value={this.state.answer} style={{margin: 10}} placeholder="Answer"/>

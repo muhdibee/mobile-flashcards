@@ -4,7 +4,7 @@ import {createAppContainer} from 'react-navigation'
 import {createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs';
 import Ionicon from 'react-native-vector-icons/Ionicons';
 import {white, gray, black, blue, lightgray} from './utils/colors'
-import Decks from './Components/Decks';
+import DeckStack from './components/DeckStack';
 import AddDeck from './Components/AddDeck';
 import SelectedDeck from './Components/SelectedDeck';
 import AddCard from './Components/AddCard';
@@ -12,8 +12,8 @@ import AddCard from './Components/AddCard';
 
 const TabNavigator = createMaterialBottomTabNavigator(
   {
-    SelectedDeck: {
-    screen: SelectedDeck,
+    Decks: {
+    screen: DeckStack,
     navigationOptions:{
       tabBarIcon: ({}) => (<View><Ionicon size={22} style={{}} name={'layers'} /></View>)
     }
@@ -26,7 +26,7 @@ const TabNavigator = createMaterialBottomTabNavigator(
     }
   },
   {
-    initialRouteName: 'SelectedDeck',
+    initialRouteName: 'Decks',
     activeColor: white,
     inactiveColor: gray
   }
