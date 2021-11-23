@@ -11,7 +11,7 @@ class SelectedDeck extends React.Component {
 
     render() {
 
-        // const navigtion = props.navigtion;
+        const navigation = this.props.navigation;
 
         return(
         <View style={[appStyles.container, {justifyContent: 'space-around', flex: 1}]}>
@@ -20,8 +20,8 @@ class SelectedDeck extends React.Component {
                 <Text style={{margin: 10}}>{'2'} cards</Text>
             </View>
             <View style={[appStyles.container, {justifyContent: 'center', flex: 1}]}>
-                <Button color={blue} style={{ paddingVertical: 10, paddingHorizontal: 30}} title='Add Card' />
-                <Button color={blue} style={{ paddingVertical: 10, paddingHorizontal: 30, marginVertical: 30}} title='Start Quiz' />
+                <Button color={blue} onPress={()=> navigation.navigate('AddCard')} style={{ paddingVertical: 10, paddingHorizontal: 30}} title='Add Card' />
+                <Button color={blue} onPress={()=> navigation.navigate('StartQuiz')} style={{ paddingVertical: 10, paddingHorizontal: 30, marginVertical: 30}} title='Start Quiz' />
                 <Text style={{ padding: 10, margin: 10}} >Delete Deck</Text>
             </View>
         </View>

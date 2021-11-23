@@ -9,12 +9,12 @@ class Decks extends React.Component {
     }
 
     render() {
+        const navigation = this.props.navigation;
 
-        // const navigtion = props.navigtion;
         return(
-        <View style={[appStyles.container, {justifyContent: 'space-around'}]}>
-            <View>
-                <Text>Deck 1 </Text>
+        <View  style={[appStyles.container, {justifyContent: 'space-around'}]}>
+            <View onTouchStart={()=> navigation.navigate('SelectedDeck')}>
+                <Text >Deck 1 </Text>
                 <Text>2 Cards </Text>
             </View>
             <View>
@@ -27,8 +27,8 @@ class Decks extends React.Component {
             </View>
         </View>
         )
-    }
 
+    }
 }
 
 export default Decks;
