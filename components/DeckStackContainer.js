@@ -4,16 +4,13 @@ import {createStackNavigator} from 'react-navigation-stack'
 import {createAppContainer} from 'react-navigation'
 import { appStyles } from '../appStylesheet/appStyles';
 import {white, gray, black, blue, lightgray} from '../utils/colors';
-import Decks from './Decks';
+import Decks from './Deck';
 import SelectedDeck from './SelectedDeck';
 import AddCard from './AddCard';
 import StartQuiz from './StartQuiz';
 
 
-const DeckStack = createStackNavigator({
-    Decks: {
-        screen: Decks
-    },
+const DeckStackContainer = createStackNavigator({
     SelectedDeck:{
         screen: SelectedDeck
     },
@@ -26,4 +23,4 @@ const DeckStack = createStackNavigator({
 
 });
 
-export default createAppContainer(DeckStack);
+export default createAppContainer(DeckStackContainer);

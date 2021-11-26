@@ -23,7 +23,7 @@ class AddDeck extends React.Component {
 
         // const navigtion = props.navigtion;
         return(
-            <View style={[appStyles.container, {justifyContent: "space-evenly", flex: 1}]}>
+            <View style={appStyles.container}>
                 <View style={[appStyles.container, {justifyContent: "center", flex: 1}]}>
                     <Text style={{margin: 10}}>What is the title of your new deck?</Text>
                     <TextInput onChangeText={(e)=> this.handleOnChangeText(e)} value={this.state.text} style={{margin: 10}} placeholder="Deck Title"/>
