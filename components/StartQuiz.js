@@ -10,7 +10,7 @@ class StartQuiz extends React.Component {
     }
 
     render() {
-        // const navigtion = props.navigtion;
+        const navigation = this.props.navigation;
 
         return(
         <View style={[appStyles.container]}>

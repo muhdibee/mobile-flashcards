@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button, Stylesheet } from 'react-native';
+import { View, Text, Button, Stylesheet, TouchableOpacity } from 'react-native';
 import { TextInput } from 'react-native-paper';
 import { appStyles } from '../appStylesheet/appStyles';
 import {white, gray, black, blue, lightgray} from '../utils/colors'
@@ -29,7 +29,9 @@ class AddDeck extends React.Component {
                     <TextInput onChangeText={(e)=> this.handleOnChangeText(e)} value={this.state.text} style={{margin: 10}} placeholder="Deck Title"/>
                 </View>
                 <View style={[appStyles.container, {justifyContent: "center", flex: 1}]}>
-                    <Button color={blue} style={{ margin: 10, padding: 10 }} title="Create Deck" />
+                    <TouchableOpacity style={{ margin: 10, padding: 10, marginHorizontal:30, backgroundColor: blue }}>
+                        <Text style={{color: white}} >Create Deck</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         )

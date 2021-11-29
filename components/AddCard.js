@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button, Stylesheet } from 'react-native';
+import { View, Text, TouchableOpacity, Button, Stylesheet } from 'react-native';
 import { TextInput } from 'react-native-paper';
 import { appStyles } from '../appStylesheet/appStyles';
 import {white, gray, black, blue, lightgray} from '../utils/colors'
@@ -25,7 +25,7 @@ class AddCard extends React.Component {
         console.log('Text Value:', this.state.answer)
     }
     render() {
-        // const navigtion = props.navigtion;
+        const navigation = this.props.navigation;
         return(
             <View style={[ appStyles.container, { justifyContent: "space-evenly", flex: 1 } ]}>
                 <View style={[appStyles.container, {justifyContent: "center", flex: 1}]}>
@@ -33,7 +33,9 @@ class AddCard extends React.Component {
                     <TextInput onChangeText={(e)=> this.handleAnswer(e)} value={this.state.answer} style={{margin: 10}} placeholder="Answer"/>
                 </View>
                 <View style={[appStyles.container, {justifyContent: "center", flex: 1}]}>
-                    <Button color={blue} style={{ margin: 10, padding: 10 }} title="Submit" />
+                    <TouchableOpacity style={{  paddingHorizontal:40, backgroundColor: blue }}>
+                        <Text style={{color: white, margin:10}} >Submit</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         )
