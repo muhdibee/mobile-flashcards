@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Button, Stylesheet } from 'react-native';
 import { TextInput } from 'react-native-paper';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { appStyles } from '../appStylesheet/appStyles';
 import {white, gray, black, blue, lightgray} from '../utils/colors'
 
@@ -19,13 +20,15 @@ class AddCard extends React.Component {
         this.setState({ question:e })
         console.log('Text Value:', this.state.question)
     }
-
     handleAnswer(e) {
         this.setState({ answer:e })
         console.log('Text Value:', this.state.answer)
     }
+
     render() {
+
         const navigation = this.props.navigation;
+
         return(
             <View style={[ appStyles.container, { justifyContent: "space-evenly", flex: 1 } ]}>
                 <View style={[appStyles.container, {justifyContent: "center", flex: 1}]}>
