@@ -3,6 +3,7 @@ import { View, Text, Stylesheet,FlatList } from 'react-native';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { appStyles } from '../appStylesheet/appStyles';
+import {appKey} from '../utils/helpers'
 import {white, gray, black, blue, lightgray} from '../utils/colors'
 import {initialAppData} from '../utils/helpers'
 
@@ -32,7 +33,7 @@ class Decks extends React.Component {
 
        const setAppData = async (initialAppData) => {
             try {
-                await AsyncStorage.setItem('mobile-flashcard-data', JSON.stringify(initialAppData))
+                await AsyncStorage.setItem(appKey, JSON.stringify(initialAppData))
                 .then(result => this.setState({decks:result}))
                 .then( console.log('Set data succesfull'))
             } catch(e) {
@@ -41,11 +42,11 @@ class Decks extends React.Component {
         }
         const getData = async () => {
             try {
-              await AsyncStorage.getItem('mobile-flashcard-data')
+              await AsyncStorage.getItem(appKey)
               .then(result => result!=null ?this.setState({decks:JSON.parse(result)}): setAppData(initialAppData)  )
               .then(console.log('Get data succesful'))
             } catch(e) {
-                // console.log("Error in getData function: ", e)
+                console.log("Error in getData function: ", e)
             }
           }
           getData();

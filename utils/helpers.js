@@ -25,4 +25,6 @@ export const initialAppData = {
           }
       ]
     }
-  }
+  };
+
+  export const appKey = 'mobile-flashcard-data';
