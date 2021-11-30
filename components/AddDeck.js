@@ -40,7 +40,19 @@ class AddDeck extends React.Component {
             newDeck = text
         }
         const handleSubmit = (newDeck) => {
+            const decks = this.state.decks;
+
+            const modifiedDecks = {...decks, [newDeck]:{'title': newDeck, 'questions': []}};
+            try{
+                AsyncStorage.setItem(appKey, JSON.stringify(modifiedDecks))
+            } catch(e) {
+                console.log("Error while merging: ", e)
+            }
+
             console.log(newDeck)
+            console.log("Decks: ", decks)
+            console.log("modifiedDecks from submit function: ", modifiedDecks)
+
         }
 
         return(
