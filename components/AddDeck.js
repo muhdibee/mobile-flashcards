@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button, Stylesheet, TouchableOpacity } from 'react-native';
+import { View, Text, Button, Stylesheet, TouchableOpacity, Alert } from 'react-native';
 import { TextInput } from 'react-native-paper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {appKey} from '../utils/helpers'
@@ -11,7 +11,7 @@ import {white, gray, black, blue, lightgray} from '../utils/colors'
 class AddDeck extends React.Component {
 
     state = {
-        decks:'',
+        decks: undefined,
         newDeck: ''
     }
     constructor(props) {
@@ -39,19 +39,30 @@ class AddDeck extends React.Component {
         const handleTextChange=(text)=>{
             newDeck = text
         }
-        const handleSubmit = (newDeck) => {
+        const handleSubmit = () => {
             const decks = this.state.decks;
+            const newDeck = this.state.newDeck;
+            if(true){
+                const modifiedDecks = {...decks, [newDeck]:{'title': newDeck, 'questions': []}};
+                try{
+                    AsyncStorage.setItem(appKey, JSON.stringify(modifiedDecks))
+                } catch(e) {
+                    console.log("Error while merging: ", e)
+                }
 
-            const modifiedDecks = {...decks, [newDeck]:{'title': newDeck, 'questions': []}};
-            try{
-                AsyncStorage.setItem(appKey, JSON.stringify(modifiedDecks))
-            } catch(e) {
-                console.log("Error while merging: ", e)
+                console.log(newDeck)
+                console.log("Decks: ", decks)
+                console.log("modifiedDecks from submit function: ", modifiedDecks)
+
+            } else {
+                alert('Title cannot be empty!')
+
             }
 
-            console.log(newDeck)
-            console.log("Decks: ", decks)
-            console.log("modifiedDecks from submit function: ", modifiedDecks)
+
+        // } else if(decks != ''){
+        //     {alert('Title cannot be empty!')}
+        // }
 
         }
 
@@ -62,7 +73,7 @@ class AddDeck extends React.Component {
                     <TextInput onChangeText={(text)=> handleTextChange(text)} style={{margin: 10}} placeholder="Deck Title"/>
                 </View>
                 <View style={[appStyles.container, {justifyContent: "center", flex: 1}]}>
-                    <TouchableOpacity style={{ margin: 10, padding: 10, marginHorizontal:30, backgroundColor: blue }} onPress={()=>handleSubmit(newDeck)}>
+                    <TouchableOpacity style={{ margin: 10, padding: 10, marginHorizontal:30, backgroundColor: blue }} onPress={()=>handleSubmit()}>
                         <Text style={{color: white}} >Create Deck</Text>
                     </TouchableOpacity>
                 </View>

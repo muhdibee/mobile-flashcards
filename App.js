@@ -1,13 +1,13 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { View } from 'react-native';
 import {createAppContainer} from 'react-navigation'
+import { NavigationContainer } from "@react-navigation/native";
 import {createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs';
 import Ionicon from 'react-native-vector-icons/Ionicons';
-import {white, gray, black, blue, lightgray} from './utils/colors'
+import {white, gray} from './utils/colors'
 import DeckStack from './components/DeckStack';
-import SelectedDeck from './Components/SelectedDeck';
-import AddDeck from './Components/AddDeck';
-import AddCard from './Components/AddCard';
+import AddDeck from './components/AddDeck';
+import { Provider } from 'react-redux';
 
 
 const RootTabNavigator = createMaterialBottomTabNavigator(
@@ -32,4 +32,16 @@ const RootTabNavigator = createMaterialBottomTabNavigator(
   }
 )
 
-export default createAppContainer(RootTabNavigator);
+const MyNavigator = createAppContainer(RootTabNavigator);
+
+
+
+ const App = () => {
+   return(
+    //  <Provider >
+       <MyNavigator />
+    //  </Provider>
+   )
+}
+
+export default App;

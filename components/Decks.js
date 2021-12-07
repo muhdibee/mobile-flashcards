@@ -62,14 +62,14 @@ class Decks extends React.Component {
 
             return(
             <View style={[appStyles.container, {justifyContent: 'space-around'}]}>
-                <ScrollView>
+                
+
                     { Object.keys(decks).map( (deckkey)=> (
                         <TouchableOpacity key={deckkey} style={{marginVertical:5, borderRadius: 2, backgroundColor: lightgray}} onPress={()=> navigation.navigate('SelectedDeck', {decks:decks, deckkey:deckkey})}>
                             <Text style={{margin:3, marginHorizontal: 10}}>{decks[deckkey].title}</Text>
                             <Text style={{margin:3, marginHorizontal: 10}}>{decks[deckkey].questions.length} Cards</Text>
                         </TouchableOpacity>
                     ))}
-                </ScrollView>
                 {/* <DeckView key={deckkey} deckkey={deckkey} decks={deckValue}  navigation={navigation} /> */}
                 {/* <FlatList data={decks} renderItem={DeckView} keyExtractor={item=> item.key} decks={decks} navigation={navigation} /> */}
             </View>
